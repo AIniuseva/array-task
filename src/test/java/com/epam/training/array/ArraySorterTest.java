@@ -1,9 +1,10 @@
 package com.epam.training.array;
 
+import org.junit.Test;
+
 public class ArraySorterTest {
 
-    //TODO: uncomment test when junit dependency is added
-    //@Test
+    @Test
     public void testSortShouldSortWhenPositiveNumbers(){
 
     }
