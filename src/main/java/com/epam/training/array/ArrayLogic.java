@@ -2,8 +2,7 @@ package com.epam.training.array;
 
 public class ArrayLogic {
 
-    //TODO: write it using binary search
-    public boolean exists(Array array, int value) {
+    public boolean exists(Array array, int element) {
         throw new UnsupportedOperationException();
     }
 
@@ -11,6 +10,11 @@ public class ArrayLogic {
         throw new UnsupportedOperationException();
     }
 
-    //TODO: add other methods here
+    public int findMinValue(Array array) {
+        throw new UnsupportedOperationException();
+    }
 
+    public int findMaxValue(Array array) {
+        throw new UnsupportedOperationException();
+    }
 }
