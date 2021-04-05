@@ -3,7 +3,6 @@ package com.epam.training.array;
 import java.util.Arrays;
 import java.util.Random;
 
-//TODO: write a wrapper class for a java int array, make this class immutable
 public class Array {
 
     private final int[] items;
@@ -12,13 +11,8 @@ public class Array {
         this.items = items;
     }
 
-    public Array(int quantityOfElements, int minValue, int maxValue){
-        Random random = new Random();
-        int[] arrayWithRandomValues = new int[quantityOfElements];
-        for (int i = 0; i < quantityOfElements; i++) {
-            arrayWithRandomValues[i] = random.nextInt(maxValue - minValue) + minValue;
-        }
-        this.items = arrayWithRandomValues;
+    public Array(int quantityOfElements, int minValue, int maxValue) {
+        this.items = generateRandomArray(quantityOfElements, minValue, maxValue);
     }
 
     public int[] getItems() {
@@ -43,5 +37,14 @@ public class Array {
     @Override
     public int hashCode() {
         return Arrays.hashCode(items);
+    }
+
+    private int[] generateRandomArray(int quantityOfElements, int minValue, int maxValue) {
+        Random random = new Random();
+        int[] arrayWithRandomValues = new int[quantityOfElements];
+        for (int i = 0; i < quantityOfElements; i++) {
+            arrayWithRandomValues[i] = random.nextInt(maxValue - minValue) + minValue;
+        }
+        return arrayWithRandomValues;
     }
 }

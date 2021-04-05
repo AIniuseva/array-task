@@ -1,4 +1,6 @@
-package com.epam.training.array;
+package com.epam.training.array.impl;
+
+import com.epam.training.array.Array;
 
 public class ArrayLogic {
 
@@ -30,23 +32,23 @@ public class ArrayLogic {
 
         int[] primeNumbersArray = new int[newArraySize];
 
-        int j = 0;
+        int i = 0;
         for (int element : array.getItems()) {
             if (isPrime(element)) {
-                primeNumbersArray[j] = element;
-                j++;
+                primeNumbersArray[i] = element;
+                i++;
             }
         }
 
         return new Array(primeNumbersArray);
     }
 
-    private boolean isPrime(int number) {
-        if (number <= 1) {
+    private boolean isPrime(int element) {
+        if (element <= 1) {
             return false;
         } else {
-            for (int i = 2; i < number; i++) {
-                if (number % i == 0) {
+            for (int i = 2; i < element; i++) {
+                if (element % i == 0) {
                     return false;
                 }
             }
