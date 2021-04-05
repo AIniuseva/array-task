@@ -2,6 +2,7 @@ package com.epam.training.array;
 
 import com.epam.training.array.impl.ArrayLogic;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Array {
@@ -15,6 +16,11 @@ public class Array {
     public Array(int quantityOfElements, int minValue, int maxValue) {
         ArrayLogic arrayLogic = new ArrayLogic();
         this.items = arrayLogic.generateRandomArray(quantityOfElements, minValue, maxValue);
+    }
+
+    public Array(File file) {
+        ArrayLogic arrayLogic = new ArrayLogic();
+        this.items = arrayLogic.readArrayFromFile(file);
     }
 
     public int[] getItems() {

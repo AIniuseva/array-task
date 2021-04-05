@@ -2,8 +2,12 @@ package com.epam.training.array.impl;
 
 import com.epam.training.array.Array;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ArrayLogic {
     private static final ArrayLogic arrayLogic = new ArrayLogic();
@@ -36,19 +40,6 @@ public class ArrayLogic {
         return primeNumbersArray;
     }
 
-    private boolean isPrime(int element) {
-        if (element <= 1) {
-            return false;
-        } else {
-            for (int i = 2; i < element; i++) {
-                if (element % i == 0) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     public int findMinValue(Array array) {
         int minValue = array.getItems()[0];
 
@@ -76,8 +67,10 @@ public class ArrayLogic {
 
         for (int i = 0; i < array.getItems().length; i++) {
             String temp = String.valueOf(array.getItems()[i]);
-            if (temp.length() == 3 && temp.charAt(0) != temp.charAt(1)
-                    && temp.charAt(1) != temp.charAt(2) && temp.charAt(0) != temp.charAt(2)) {
+            if (temp.length() == 3
+                    && temp.charAt(0) != temp.charAt(1)
+                    && temp.charAt(1) != temp.charAt(2)
+                    && temp.charAt(0) != temp.charAt(2)) {
                 noIdenticalThreeDigitNumbersArray = arrayLogic.append(noIdenticalThreeDigitNumbersArray, array.getItems()[i]);
             }
         }
@@ -99,5 +92,38 @@ public class ArrayLogic {
             arrayWithRandomValues[i] = random.nextInt(maxValue - minValue) + minValue;
         }
         return arrayWithRandomValues;
+    }
+
+    public int[] readArrayFromFile(File file) {
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Array arrayFromFile = new Array(new int[0]);
+
+        try (Scanner scanner = new Scanner(fileReader)) {
+            while (scanner.hasNext()) {
+                arrayFromFile = arrayLogic.append(arrayFromFile, scanner.nextInt());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return arrayFromFile.getItems();
+    }
+
+    private boolean isPrime(int element) {
+        if (element <= 1) {
+            return false;
+        } else {
+            for (int i = 2; i < element; i++) {
+                if (element % i == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

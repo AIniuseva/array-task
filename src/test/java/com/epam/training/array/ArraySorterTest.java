@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ArraySorterTest {
-    private ArraySorterI arraySorter;
+    private ArraySorter arraySorter;
 
     @Test
     public void testSortShouldSortWhenPositiveNumbers() {

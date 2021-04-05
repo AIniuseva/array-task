@@ -1,5 +1,5 @@
 package com.epam.training.array;
 
-public interface ArraySorterI {
+public interface ArraySorter {
     Array sort(Array array);
 }

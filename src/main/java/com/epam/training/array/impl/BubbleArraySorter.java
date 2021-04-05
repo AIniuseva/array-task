@@ -1,9 +1,9 @@
 package com.epam.training.array.impl;
 
 import com.epam.training.array.Array;
-import com.epam.training.array.ArraySorterI;
+import com.epam.training.array.ArraySorter;
 
-public class BubbleArraySorter implements ArraySorterI {
+public class BubbleArraySorter implements ArraySorter {
     @Override
     public Array sort(Array array) {
         int[] sortedArray = array.getItems();

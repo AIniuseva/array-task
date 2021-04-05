@@ -1,9 +1,9 @@
 package com.epam.training.array.impl;
 
 import com.epam.training.array.Array;
-import com.epam.training.array.ArraySorterI;
+import com.epam.training.array.ArraySorter;
 
-public class PositiveNumbersArraySorter implements ArraySorterI {
+public class PositiveNumbersArraySorter implements ArraySorter {
     @Override
     public Array sort(Array array) {
         ArrayLogic arrayLogic = new ArrayLogic();
@@ -15,7 +15,7 @@ public class PositiveNumbersArraySorter implements ArraySorterI {
             }
         }
 
-        ArraySorterI bubbleSort = new BubbleArraySorter();
+        ArraySorter bubbleSort = new BubbleArraySorter();
         return bubbleSort.sort(sortedPositiveArray);
     }
 }
