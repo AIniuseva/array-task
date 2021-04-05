@@ -1,7 +1,8 @@
 package com.epam.training.array;
 
+import com.epam.training.array.impl.ArrayLogic;
+
 import java.util.Arrays;
-import java.util.Random;
 
 public class Array {
 
@@ -12,7 +13,8 @@ public class Array {
     }
 
     public Array(int quantityOfElements, int minValue, int maxValue) {
-        this.items = generateRandomArray(quantityOfElements, minValue, maxValue);
+        ArrayLogic arrayLogic = new ArrayLogic();
+        this.items = arrayLogic.generateRandomArray(quantityOfElements, minValue, maxValue);
     }
 
     public int[] getItems() {
@@ -37,14 +39,5 @@ public class Array {
     @Override
     public int hashCode() {
         return Arrays.hashCode(items);
-    }
-
-    private int[] generateRandomArray(int quantityOfElements, int minValue, int maxValue) {
-        Random random = new Random();
-        int[] arrayWithRandomValues = new int[quantityOfElements];
-        for (int i = 0; i < quantityOfElements; i++) {
-            arrayWithRandomValues[i] = random.nextInt(maxValue - minValue) + minValue;
-        }
-        return arrayWithRandomValues;
     }
 }

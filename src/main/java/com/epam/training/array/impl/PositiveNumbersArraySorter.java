@@ -6,23 +6,16 @@ import com.epam.training.array.ArraySorterI;
 public class PositiveNumbersArraySorter implements ArraySorterI {
     @Override
     public Array sort(Array array) {
-        int newArraySize = 0;
-        for (int element : array.getItems()) {
-            if (element > 0) {
-                newArraySize++;
-            }
-        }
-
-        int[] arrayWithoutNegativeNumbers = new int[newArraySize];
-        int i = 0;
+        ArrayLogic arrayLogic = new ArrayLogic();
+        Array sortedPositiveArray = new Array(new int[0]);
 
         for (int element : array.getItems()) {
             if (element > 0) {
-                arrayWithoutNegativeNumbers[i] = element;
-                i++;
+                sortedPositiveArray = arrayLogic.append(sortedPositiveArray, element);
             }
         }
+
         ArraySorterI bubbleSort = new BubbleArraySorter();
-        return bubbleSort.sort(new Array(arrayWithoutNegativeNumbers));
+        return bubbleSort.sort(sortedPositiveArray);
     }
 }

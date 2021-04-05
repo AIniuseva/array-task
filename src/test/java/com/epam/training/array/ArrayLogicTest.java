@@ -35,4 +35,12 @@ public class ArrayLogicTest {
         int actualValue = arrayLogic.findMaxValue(array);
         Assert.assertEquals(10, actualValue);
     }
+
+    @Test
+    public void testGetAllNoIdenticalThreeDigitNumbers() {
+        Array array = new Array(new int[]{222, 45, 123, 67, 894, 232, 548});
+        Array expectedArray = new Array(new int[]{123, 894, 548});
+        Array actualArray = arrayLogic.getAllNoIdenticalThreeDigitNumbers(array);
+        Assert.assertEquals(expectedArray, actualArray);
+    }
 }
