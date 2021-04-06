@@ -4,23 +4,29 @@ import com.epam.training.array.impl.ArrayLogic;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Array {
 
     private final int[] items;
+
+    private static final ArrayLogic arrayLogic = new ArrayLogic();
 
     public Array(int[] items) {
         this.items = items;
     }
 
     public Array(int quantityOfElements, int minValue, int maxValue) {
-        ArrayLogic arrayLogic = new ArrayLogic();
         this.items = arrayLogic.generateRandomArray(quantityOfElements, minValue, maxValue);
     }
 
     public Array(File file) {
-        ArrayLogic arrayLogic = new ArrayLogic();
         this.items = arrayLogic.readArrayFromFile(file);
+    }
+
+    public Array(Scanner scanner) {
+        this.items = arrayLogic.readArrayFromConsole(scanner);
+
     }
 
     public int[] getItems() {

@@ -114,6 +114,14 @@ public class ArrayLogic {
         return arrayFromFile.getItems();
     }
 
+    public int[] readArrayFromConsole(Scanner scanner) {
+        Array arrayFromConsole = new Array(new int[0]);
+        while (scanner.hasNext()) {
+            arrayFromConsole = arrayLogic.append(arrayFromConsole, scanner.nextInt());
+        }
+        return arrayFromConsole.getItems();
+    }
+
     private boolean isPrime(int element) {
         if (element <= 1) {
             return false;
