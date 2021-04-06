@@ -1,6 +1,7 @@
 package com.epam.training.array.impl;
 
 import com.epam.training.array.Array;
+import com.epam.training.array.ArraySorter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -75,6 +76,27 @@ public class ArrayLogic {
             }
         }
         return noIdenticalThreeDigitNumbersArray;
+    }
+
+    public Array getAllFibonacciNumbersFromArray(Array array) {
+        ArraySorter bubbleSorter = new BubbleArraySorter();
+        Array sortedArray = bubbleSorter.sort(array);
+
+        Array arrayWithFibonacciNumbers = new Array(new int[0]);
+
+        if (sortedArray.getItems()[2] == sortedArray.getItems()[0] + sortedArray.getItems()[1]) {
+            arrayWithFibonacciNumbers = arrayLogic.append(arrayWithFibonacciNumbers, sortedArray.getItems()[0]);
+            arrayWithFibonacciNumbers = arrayLogic.append(arrayWithFibonacciNumbers, sortedArray.getItems()[1]);
+
+        }
+
+        for (int i = 2; i < sortedArray.getItems().length; i++) {
+            if (sortedArray.getItems()[i] == sortedArray.getItems()[i - 1] + sortedArray.getItems()[i - 2]) {
+                arrayWithFibonacciNumbers = arrayLogic.append(arrayWithFibonacciNumbers, sortedArray.getItems()[i]);
+            }
+        }
+
+        return arrayWithFibonacciNumbers;
     }
 
     public Array append(Array array, int value) {

@@ -57,8 +57,15 @@ public class ArrayLogicTest {
     public void testReadArrayFromFile() {
         File file = new File("src/test/resources/testdata.txt");
         Array actualArray = new Array(file);
-
         Array expectedArray = new Array(new int[]{1, 2, 3, 4, 5, 6, 7});
+        Assert.assertEquals(expectedArray, actualArray);
+    }
+
+    @Test
+    public void testGetAllFibonacciNumbersFromArray() {
+        Array array = new Array(new int[]{21, 13, 55, 144, 34, 89, 233});
+        Array actualArray = arrayLogic.getAllFibonacciNumbersFromArray(array);
+        Array expectedArray = new Array(new int[]{13, 21, 34, 55, 89, 144, 233});
         Assert.assertEquals(expectedArray, actualArray);
     }
 }
