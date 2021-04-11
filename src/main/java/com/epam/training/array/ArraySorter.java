@@ -1,8 +1,5 @@
 package com.epam.training.array;
 
-public class ArraySorter {
-
-    public Array sort(Array array) {
-        throw new UnsupportedOperationException();
-    }
+public interface ArraySorter {
+    Array sort(Array array);
 }
