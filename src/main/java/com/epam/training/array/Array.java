@@ -6,8 +6,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Array {
-
+public final class Array {
     private final int[] items;
 
     private static final ArrayLogic arrayLogic = new ArrayLogic();
@@ -42,8 +41,12 @@ public class Array {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Array array = (Array) o;
         return Arrays.equals(items, array.items);
     }

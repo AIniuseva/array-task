@@ -8,6 +8,7 @@ public class NegativeNumbersArraySorter implements ArraySorter {
     public Array sort(Array array) {
         ArrayLogic arrayLogic = new ArrayLogic();
         Array sortedNegativeArray = new Array(new int[0]);
+
         for (int element : array.getItems()) {
             if (element < 0) {
                 sortedNegativeArray = arrayLogic.append(sortedNegativeArray, element);
@@ -18,3 +19,4 @@ public class NegativeNumbersArraySorter implements ArraySorter {
         return bubbleSort.sort(sortedNegativeArray);
     }
 }
+

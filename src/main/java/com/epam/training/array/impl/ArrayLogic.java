@@ -87,7 +87,6 @@ public class ArrayLogic {
         if (sortedArray.getItems()[2] == sortedArray.getItems()[0] + sortedArray.getItems()[1]) {
             arrayWithFibonacciNumbers = arrayLogic.append(arrayWithFibonacciNumbers, sortedArray.getItems()[0]);
             arrayWithFibonacciNumbers = arrayLogic.append(arrayWithFibonacciNumbers, sortedArray.getItems()[1]);
-
         }
 
         for (int i = 2; i < sortedArray.getItems().length; i++) {
